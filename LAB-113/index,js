@@ -1,1 +1,323 @@
+// Soldier
+class Soldier {
+    constructor (health, strength) {
+        this.health = health
+        this.strength = strength
+    }
+    attack() {
+        return this.strength
+    }
+    receiveDamage(damage) {
+        this.health -= damage
+    }
+}
 
+// Viking
+class Viking extends Soldier {
+    constructor (name, health, strength) {
+        super (health, strength)
+        this.name = name
+    }
+    receiveDamage(damage) {
+        this.health -= damage
+        if (this.health > 0) return this.name + " has received " + damage + " points of damage!"
+        else return this.name + " has died in act of combat!"
+    }
+    battleCry() {
+        return "Odin Owns You All!"
+    }
+}
+
+// Saxon
+class Saxon extends Soldier {
+    constructor (health, strength) {
+        super (health, strength)
+    }
+    receiveDamage(damage) {
+        this.health -= damage
+        if (this.health > 0) return "A Saxon has received " + damage + " points of damage!"
+        else return "A Saxon has died in combat!"
+    }
+
+}
+
+// War
+class War {
+    constructor () {
+        this.vikingArmy = []
+        this.saxonArmy = []
+    }
+    addViking(viking) {
+        this.vikingArmy.push(viking)
+    }
+    addSaxon(saxon) {
+        this.saxonArmy.push(saxon)
+    }
+    vikingAttack() {
+        let vikingAttack = this.vikingArmy[Math.floor(Math.random() * this.vikingArmy.length)]
+        let saxonPosition = Math.floor(Math.random() * this.saxonArmy.length)
+        let saxonReceiveDamage = this.saxonArmy[saxonPosition]
+        let message = saxonReceiveDamage.receiveDamage(vikingAttack.attack())
+
+        if (saxonReceiveDamage.health <= 0) this.saxonArmy.splice(saxonPosition, 1)
+        return message
+    }
+    saxonAttack() {
+        let saxonAttack = this.saxonArmy[Math.floor(Math.random() * this.saxonArmy.length)]
+        let vikingPosition = Math.floor(Math.random() * this.vikingArmy.length)
+        let vikingReceiveDamage = this.vikingArmy[vikingPosition]
+        let message = vikingReceiveDamage.receiveDamage(saxonAttack.attack())
+        
+        if (vikingReceiveDamage.health <= 0) this.vikingArmy.splice(vikingPosition, 1)
+        return message
+    }
+    showStatus() {
+        if (this.saxonArmy.length <= 0) return "Vikings have won the war of the century!!!"
+        else if (this.vikingArmy.length <= 0) return "Saxons have fought for their lives and survive another day..."
+        else return "Vikings and Saxons are still in the thick of battle!!!"
+    }
+}
+
+// The War Begins...
+
+const viking1 = new Viking('Anders', 50, 10)
+const viking2 = new Viking('Bergen', 50, 10)
+const viking3 = new Viking('Birger', 75, 15)
+const viking4 = new Viking('Carlson', 75, 15)
+const viking5 = new Viking('Ericson', 80, 20)
+const viking6 = new Viking('Garald', 80, 20)
+const viking7 = new Viking('Guss', 100, 30)
+
+const saxon1 = new Saxon(30, 5)
+const saxon2 = new Saxon(30, 5) 
+const saxon3 = new Saxon(30, 5)
+const saxon4 = new Saxon(30, 5)
+const saxon5 = new Saxon(30, 5)
+const saxon6 = new Saxon(30, 5)
+const saxon7 = new Saxon(30, 5)
+const saxon8 = new Saxon(30, 5)
+const saxon9 = new Saxon(30, 5)
+const saxon10 = new Saxon(40, 10)
+const saxon11 = new Saxon(40, 10)
+const saxon12 = new Saxon(40, 10)
+const saxon13 = new Saxon(50, 15)
+const saxon14 = new Saxon(50, 15)
+const saxon15 = new Saxon(50, 15)
+
+const war = new War()
+
+console.log(war.addViking(viking1))
+console.log(war.addViking(viking2))
+console.log(war.addViking(viking3))
+console.log(war.addViking(viking4))
+console.log(war.addViking(viking5))
+console.log(war.addViking(viking6))
+console.log(war.addViking(viking7))
+
+console.log(war.addSaxon(saxon1))
+console.log(war.addSaxon(saxon2))
+console.log(war.addSaxon(saxon3))
+console.log(war.addSaxon(saxon4))
+console.log(war.addSaxon(saxon5))
+console.log(war.addSaxon(saxon6))
+console.log(war.addSaxon(saxon7))
+console.log(war.addSaxon(saxon8))
+console.log(war.addSaxon(saxon9))
+console.log(war.addSaxon(saxon10))
+console.log(war.addSaxon(saxon11))
+console.log(war.addSaxon(saxon12))
+console.log(war.addSaxon(saxon13))
+console.log(war.addSaxon(saxon14))
+console.log(war.addSaxon(saxon15))
+
+console.log(war.vikingArmy)
+console.log(war.saxonArmy)
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
+
+console.log(war.vikingAttack())
+console.log(war.showStatus())
+console.log(war.saxonAttack())
+console.log(war.showStatus())
