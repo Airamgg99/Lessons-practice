@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/index.js" defer></script>
+    <title>Reboot Academy shopping center</title>
+  </head>
+  <body>
+    <div class="title"><h1>Reboot Academy shopping center</h1></div>
+    <div class="container">
+      <div class="product">
+        <div class="divProductName"><span>Camisetas</span></div>
+        <div class="productUnitPrice"><span id="unitPriceSpan">25</span></div>
+        <div>
+          <label for="unitsQTY"> QTY</label>
+          <input type="text" name="unitsQTY" class="productQTY" id="unitsQTY">
+        </div>
+        <div class="productTotalPrice"><span id="totalPriceSpan">0</span>€</div>
+        <div><button type="reset" class="btn-delete">Delete</button></div>
+      </div>
 
+      <div class="product">
+        <div class="divProductName"><span>Pantalones</span></div>
+        <div class="productUnitPrice"><span
+            id="unitPriceSpanPants">10</span></div>
+        <div>
+          <label for="unitsQTYPants"> Quantity</label>
+          <input type="text" name="unitsQTYPants" class="productQTY"
+            id="unitsQTYPants">
+        </div>
+        <div class="productTotalPrice"><span
+            id="totalPriceSpanPants">0</span>€</div>
+        <div><button type="reset" class="btn-delete">Delete</button></div>
+      </div>
+    </div>
+
+    <div class="creating">
+      <div class="divProductName">
+        <label for="newName">Product Name</label>
+        <input type="text" name="newName" id="newName">
+      </div>
+
+      <div class="divPriceName">
+        <label for="newPrice">Product Price</label>
+        <input type="text" name="newPrice" id="newPrice">
+      </div>
+      <div><button class="createButton"
+          id="new-item-create">Create</button></div>
+
+    </div>
+
+    <div class="divCalcPrices"><button class="btn-success"
+        id="calc-prices-button">Calculate Prices</button></div>
+
+  </body>
+</html>
