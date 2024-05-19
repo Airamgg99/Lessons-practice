@@ -1,1 +1,52 @@
+body {
+  background: #fcc;
+  margin: 0;
+}
+nav {
+  display: none;
+  clear: both;
+  justify-content: center;
+  background: #333;
+  flex-direction: column;
+}
+nav a {
+  padding: 1.25em 1.5em;
+  color: #ccc;
+  background: #555;
+  text-decoration: none;
+  transition: all 1.5s;
+}
+.menu {
+  background: #555;
+  text-align: center;
+  color: #fff;
+  line-height: 2em;
+  cursor: pointer;
+}
 
+@media screen and (min-width: 500px) {
+  body {
+    background: #cfc;
+  }
+  .menu {
+    display: none;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
+  nav a:hover {
+    color: #dfd;
+    background: #797;
+  }
+
+@media screen and (min-width: 1000px) {
+  body {
+    background: #ccf;
+  }
+}
+
+/* Styles for toggled menu */
+.menu-toggle {
+  display: flex;
+}
